@@ -36,14 +36,12 @@ export class Profile {
   @CreateDateColumn({
     name: 'created_at',
     type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP(2)',
   })
   createdAt: Date;
 
   @UpdateDateColumn({
     name: 'updated_at',
     type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP(2)',
   })
   updatedAt: Date;
 

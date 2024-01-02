@@ -1,4 +1,6 @@
-import Joi from 'joi';
+// import Joi from 'joi';
+import * as Joi from 'joi';
+
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 import { Module } from '@nestjs/common';
@@ -23,11 +25,11 @@ const typeOrmModuleOptions = {
   ): Promise<TypeOrmModuleOptions> => ({
     namingStrategy: new SnakeNamingStrategy(),
     type: 'mysql',
-    username: configService.get('DB_USERNAME'),
-    password: configService.get('DB_PASSWORD'),
-    host: configService.get('DB_HOST'),
-    port: configService.get('DB_PORT'),
-    database: configService.get('DB_NAME'),
+    username: configService.get<string>('DB_USERNAME'),
+    password: configService.get<string>('DB_PASSWORD'),
+    host: configService.get<string>('DB_HOST'),
+    port: configService.get<number>('DB_PORT'),
+    database: configService.get<string>('DB_NAME'),
     entities: [User, Profile, Show, Ticketing, ShowDetail],
     synchronize: configService.get('DB_SYNC'),
     logging: true,
@@ -38,7 +40,6 @@ const typeOrmModuleOptions = {
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
       isGlobal: true,
       validationSchema: Joi.object({
         JWT_SECRET_KEY: Joi.string().required(),
