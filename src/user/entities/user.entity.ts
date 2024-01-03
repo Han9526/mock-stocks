@@ -21,9 +21,6 @@ export class User {
   userId: number;
 
   @Column({ type: 'varchar', unique: true, nullable: false })
-  name: string;
-
-  @Column({ type: 'varchar', unique: true, nullable: false })
   email: string;
 
   @Column({ type: 'varchar', select: false, nullable: false })

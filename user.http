@@ -1,0 +1,29 @@
+###  회원가입
+POST http://localhost:3020/user/register
+Content-Type: application/json
+
+{
+  "email": "test9@naver.com",
+  "password": "test",
+  "name":"테스트입니다",
+  "phone":"010-1111-1119"
+}
+
+
+### 회원 로그인
+
+# @name getJWT
+POST http://localhost:3020/user/signin
+Content-Type: application/json
+
+{
+  "email": "test6@naver.com",
+  "password": "test"
+}
+
+### 내정보 조회
+GET http://localhost:3020/profile/myinfo
+Content-Type: application/json
+Authorization: Bearer {{getJWT.response.body.access_token}}
+
+

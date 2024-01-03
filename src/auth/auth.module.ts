@@ -1,3 +1,5 @@
+import { UserModule } from 'src/user/user.module';
+
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
@@ -14,6 +16,7 @@ import { JwtStrategy } from './jwt.strategy';
       }),
       inject: [ConfigService],
     }),
+    UserModule, // 추가!
   ],
   providers: [JwtStrategy],
 })

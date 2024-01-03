@@ -33,6 +33,9 @@ export class Profile {
   @Column({ type: 'varchar', unique: true, nullable: false })
   phone: string;
 
+  @Column({ type: 'varchar', nullable: false })
+  name: string;
+
   @CreateDateColumn({
     name: 'created_at',
     type: 'timestamp',
