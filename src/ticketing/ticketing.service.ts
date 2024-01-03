@@ -21,7 +21,7 @@ export class TicketingService {
   async ticketingList(userId: number) {
     const getTicketingList = await this.ticketingRepository.find({
       where: { userId: userId },
-      relations: ['show', 'show.showDetail'],
+      relations: ['show'],
     });
     return { getTicketingList };
   }
