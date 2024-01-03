@@ -1,6 +1,5 @@
 import { Repository } from 'typeorm';
 
-import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { User } from './../user/entities/user.entity';
@@ -13,7 +12,6 @@ export class ProfileService {
     private profileRepository: Repository<Profile>,
     @InjectRepository(User)
     private userRepository: Repository<User>,
-    private readonly jwtService: JwtService,
   ) {}
 
   async getProfile(email: string) {
@@ -26,6 +24,6 @@ export class ProfileService {
     const findProfile = await this.profileRepository.findOne({
       where: { userId: findUser.userId },
     });
-    return { Profile: findProfile };
+    return { findProfile, findUser };
   }
 }

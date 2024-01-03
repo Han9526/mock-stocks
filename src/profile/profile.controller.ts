@@ -9,7 +9,7 @@ export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
   @UseGuards(AuthGuard('jwt'))
-  @Get('myinfo')
+  @Get('')
   async getProfile(@UserInfo() user: User) {
     return await this.profileService.getProfile(user.email);
   }

@@ -31,7 +31,6 @@ export class UserService {
     phone: string,
     imgUrl: string | null,
   ) {
-    console.log(imgUrl, description, typeof imgUrl, typeof description);
     const existingUser = await this.userRepository.findOne({
       where: { email },
     });
@@ -73,7 +72,12 @@ export class UserService {
       throw new UnauthorizedException('비밀번호를 확인해주세요.');
     }
 
-    const payload = { email, sub: user.userId };
+    const payload = { email, userId: user.userId };
+
+    console.log(
+      '🚀 ~ file: user.service.ts:78 ~ UserService ~ signin ~ payload:',
+      payload,
+    );
     return {
       access_token: this.jwtService.sign(payload),
     };

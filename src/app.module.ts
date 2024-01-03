@@ -81,6 +81,10 @@ export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(AuthMiddleware) // 미들웨어 적용!
-      .forRoutes({ path: 'user/check', method: RequestMethod.GET }); // user/check 엔드포인트에만 적용
+      .forRoutes(
+        { path: 'profile', method: RequestMethod.GET },
+        { path: 'show/register', method: RequestMethod.POST },
+        { path: 'ticketing/:showId', method: RequestMethod.POST },
+      );
   }
 }

@@ -21,7 +21,7 @@ export class Ticketing {
   date: string;
 
   @Column({ type: 'varchar', nullable: false })
-  seat: string;
+  seat: number;
 
   @Column({ name: 'show_id', type: 'bigint' })
   showId: number;

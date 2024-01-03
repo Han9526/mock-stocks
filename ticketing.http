@@ -1,0 +1,26 @@
+### 회원 로그인
+
+# @name getJWT
+POST http://localhost:3020/user/signin
+Content-Type: application/json
+
+{
+  "email": "test6@naver.com",
+  "password": "test"
+}
+
+
+###  예매하기
+POST http://localhost:3020/ticketing/2
+Content-Type: application/json
+Authorization: Bearer {{getJWT.response.body.access_token}}
+
+{
+  "date":"2024-01-02",
+  "seat":2
+}
+
+###
+GET http://localhost:3020/ticketing
+Content-Type: application/json
+Authorization: Bearer {{getJWT.response.body.access_token}}

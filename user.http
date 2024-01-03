@@ -3,10 +3,10 @@ POST http://localhost:3020/user/register
 Content-Type: application/json
 
 {
-  "email": "test9@naver.com",
+  "email": "test10@naver.com",
   "password": "test",
-  "name":"테스트입니다",
-  "phone":"010-1111-1119"
+  "name":"테스트",
+  "phone":"010-1111-1110"
 }
 
 
@@ -17,12 +17,12 @@ POST http://localhost:3020/user/signin
 Content-Type: application/json
 
 {
-  "email": "test6@naver.com",
+  "email": "test10@naver.com",
   "password": "test"
 }
 
 ### 내정보 조회
-GET http://localhost:3020/profile/myinfo
+GET http://localhost:3020/profile
 Content-Type: application/json
 Authorization: Bearer {{getJWT.response.body.access_token}}
 
